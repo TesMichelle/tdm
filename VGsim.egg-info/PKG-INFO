@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: VGsim
+Version: 0.2
+Summary: VGsim is the fast viral genealogy simulator for world-wide pandemic scenarios
+Home-page: https://scg.hse.ru
+Author: Vladimir Shchur et al
+Author-email: vshchur@hse.ru
+License: GPL-3.0 License
+Download-URL: https://github.com/Genomics-HSE/VGsim
+Description: VGsim allows to simulateneously model evolutionary processes (selection, episthasis), population structure, immunity response etc.
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GPL-3.0 License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
