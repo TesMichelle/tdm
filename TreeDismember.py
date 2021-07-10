@@ -104,10 +104,10 @@ class TreeDismember:
                 trees_neutral.append(Subtree)
         self.trees_funct = trees_funct
         self.trees_neutral = trees_neutral
-        return trees_funct, trees_neutral
+        return trees_funct, trees_neutral # [наборы вершин поддеревьев], [наборы вершин поддеревьев]
 
     def getEventTable(self):
-        event_table_funct = []                      #[{time: [n_samples, n_coals]}]
+        event_table_funct = []
         for tree_i in range(len(self.trees_funct)):
             if len(self.trees_funct[tree_i]) != 1: #костыль, отметаем деревья из 1 вершины
                 TreeTable = {}
@@ -132,9 +132,12 @@ class TreeDismember:
         self.event_table_funct = event_table_funct
         self.event_table_neutral = event_table_neutral
         return event_table_funct, event_table_neutral
+        #event_table_funct (массив) - таблицы для каждого поддерева с мутацией
+        #event_table_neutral (массив) - таблицы для каждого поддерева без мутации
+        #вид таблицы: {время: [кол-во семплов, кол-во коал.]}
 
-    def getSampleFracTable(self, tb):
-        sample_fraction_table = {}          # {time_bin: fraction}; fraction = -1 if I1 / 0
+    def getSampleFracTable(self, tb):   #нужно предоставить массив моментов времени, которыми разбиваем время на интервалы
+        sample_fraction_table = {}      #tb = ([моменты времени, которые разбивают время])
         I1 = {} #functional variant
         I2 = {} #neutral variant
 
@@ -172,3 +175,6 @@ class TreeDismember:
             sample_fraction_table[I1[i][0]] = I1I2[i]
         self.sample_fraction_table = sample_fraction_table
         return sample_fraction_table
+        #sample_fraction_table - таблица с отношениями количеств семплов
+        #вид таблицы: {time_bin: fraction}; fraction = -1 если I1 / 0;
+        #time_bin -  левая граница временного интервала

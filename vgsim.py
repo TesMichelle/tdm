@@ -109,7 +109,7 @@ if clargs.treeDismember:
     tdm = simulation.gettdm() #get tdm object
     t5 = time.time()
     print('obj done for', t5-t4)
-    trees_funct, trees_neutral = tdm.Dismember()
+    trees_funct, trees_neutral = tdm.Dismember() #перед получением таблиц, нужно разчленить дерево
     event_table_funct, event_table_neutral = tdm.getEventTable() #[{time: [n_samples, n_coals]}]
     sample_fraction_table = tdm.getSampleFracTable([0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7]) # {time_bin: fraction}; fraction = -1 if I1 / 0
     t6 = time.time()
